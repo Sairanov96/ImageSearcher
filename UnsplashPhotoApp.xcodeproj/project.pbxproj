@@ -14,7 +14,6 @@
 		2906D5F6281DA29500B9DB5A /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2906D5F5281DA29500B9DB5A /* CustomTableCell.swift */; };
 		298618D4282089C700C615DD /* SearchPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298618D3282089C700C615DD /* SearchPhoto.swift */; };
 		29DB6163281C2AFD002449CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB6162281C2AFD002449CD /* AppDelegate.swift */; };
-		29DB6167281C2AFD002449CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB6166281C2AFD002449CD /* ViewController.swift */; };
 		29DB616C281C2AFF002449CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29DB616B281C2AFF002449CD /* Assets.xcassets */; };
 		29DB616F281C2AFF002449CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DB616D281C2AFF002449CD /* LaunchScreen.storyboard */; };
 		29DB6177281C2BE5002449CD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB6176281C2BE5002449CD /* TabBarController.swift */; };
@@ -34,7 +33,6 @@
 		298618D3282089C700C615DD /* SearchPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhoto.swift; sourceTree = "<group>"; };
 		29DB615F281C2AFD002449CD /* UnsplashPhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashPhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29DB6162281C2AFD002449CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29DB6166281C2AFD002449CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		29DB616B281C2AFF002449CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29DB616E281C2AFF002449CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29DB6170281C2AFF002449CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,12 +60,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2906D5EE281D558700B9DB5A /* Review */ = {
+		298618D72822B64300C615DD /* App */ = {
 			isa = PBXGroup;
 			children = (
-				2906D5EF281D559F00B9DB5A /* InfoViewController.swift */,
+				29DB6162281C2AFD002449CD /* AppDelegate.swift */,
 			);
-			path = Review;
+			path = App;
 			sourceTree = "<group>";
 		};
 		29DB6156281C2AFD002449CD = {
@@ -91,12 +89,11 @@
 		29DB6161281C2AFD002449CD /* UnsplashPhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				298618D72822B64300C615DD /* App */,
 				29DB6182281C62D0002449CD /* Models */,
 				29DB6185281C660F002449CD /* VIews */,
 				29DB6188281C6663002449CD /* ViewControllers */,
 				29DB617F281C32EA002449CD /* Services */,
-				29DB6162281C2AFD002449CD /* AppDelegate.swift */,
-				29DB6166281C2AFD002449CD /* ViewController.swift */,
 				29DB616B281C2AFF002449CD /* Assets.xcassets */,
 				29DB616D281C2AFF002449CD /* LaunchScreen.storyboard */,
 				29DB6170281C2AFF002449CD /* Info.plist */,
@@ -135,29 +132,13 @@
 		29DB6188281C6663002449CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2906D5EE281D558700B9DB5A /* Review */,
-				29DB618A281C66AE002449CD /* Home */,
-				29DB6189281C66A1002449CD /* TabBar */,
+				2906D5EF281D559F00B9DB5A /* InfoViewController.swift */,
+				29DB617D281C325E002449CD /* HomeTableController.swift */,
+				29DB6176281C2BE5002449CD /* TabBarController.swift */,
+				29DB617B281C2F30002449CD /* TabItemBuilder.swift */,
 				2906D5F3281D948F00B9DB5A /* FavoriteViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		29DB6189281C66A1002449CD /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				29DB6176281C2BE5002449CD /* TabBarController.swift */,
-				29DB617B281C2F30002449CD /* TabItemBuilder.swift */,
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		29DB618A281C66AE002449CD /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				29DB617D281C325E002449CD /* HomeTableController.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		7787C418B0062ED873F8E7EE /* Pods */ = {
@@ -295,7 +276,6 @@
 				29DB6177281C2BE5002449CD /* TabBarController.swift in Sources */,
 				2906D5F6281DA29500B9DB5A /* CustomTableCell.swift in Sources */,
 				2906D5F2281D719700B9DB5A /* StorageManager.swift in Sources */,
-				29DB6167281C2AFD002449CD /* ViewController.swift in Sources */,
 				29DB6181281C330B002449CD /* NetworkManager.swift in Sources */,
 				298618D4282089C700C615DD /* SearchPhoto.swift in Sources */,
 				2906D5F0281D559F00B9DB5A /* InfoViewController.swift in Sources */,

@@ -107,17 +107,15 @@ extension InfoViewController {
     }
     
     @objc func addToFavorites() {
-//        if imageName == PhotoStatus.favorite.rawValue {
-//            print("favorite")
-//            StorageManager.shared.save(photoInfo)
-//            favoriteButton.image = UIImage(systemName: PhotoStatus.favorite.rawValue)
-//        } else {
-//            print("unfavorite")
-//            StorageManager.shared.delete(photoInfo)
-//            favoriteButton.image = UIImage(systemName: PhotoStatus.unfavorite.rawValue)
-//        }
-        StorageManager.shared.save(photoInfo)
-        favoriteButton.image = UIImage(systemName: PhotoStatus.favorite.rawValue)
+        if imageName == PhotoStatus.unfavorite.rawValue {
+            StorageManager.shared.save(photoInfo)
+            favoriteButton.image = UIImage(systemName: PhotoStatus.favorite.rawValue)
+            imageName = PhotoStatus.favorite.rawValue
+        } else {
+            StorageManager.shared.delete(photoInfo)
+            favoriteButton.image = UIImage(systemName: PhotoStatus.unfavorite.rawValue)
+            imageName = PhotoStatus.unfavorite.rawValue
+        }
     }
     
     @objc func showAlert() {
@@ -148,15 +146,10 @@ extension InfoViewController {
     }
     
     private func configureFavoriteButton() {
-        favoritePhoto = StorageManager.shared.realm?.objects(Photo.self)
-        let photo = favoritePhoto?.filter("id == '\(photoInfo.id)'")
-
-        guard let photoNumber = photo?.count else { return }
-        switch photoNumber {
-        case 0:
-            imageName = PhotoStatus.unfavorite.rawValue
-        default:
+        if let _ = StorageManager.shared.realm?.object(ofType: Photo.self, forPrimaryKey: photoInfo.id) {
             imageName = PhotoStatus.favorite.rawValue
+        } else {
+            imageName = PhotoStatus.unfavorite.rawValue
         }
     }
 }

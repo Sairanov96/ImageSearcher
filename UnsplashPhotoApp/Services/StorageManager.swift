@@ -26,13 +26,14 @@ class StorageManager {
     
     func save(_ photo: Photo) {
         write {
-            realm?.add(photo)
+            realm?.create(Photo.self, value: photo, update: .all)
         }
     }
     
     func delete(_ photo: Photo) {
         write {
             if let urls = photo.urls, let user = photo.user {
+                
                 realm?.delete(urls)
                 realm?.delete(user)
             }

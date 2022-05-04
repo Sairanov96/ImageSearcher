@@ -13,7 +13,7 @@ class FavoriteViewController: UIViewController {
     private let identifier = "cell"
     private var photos: Results<Photo>? = nil
     
-    private let refreshControl: UIRefreshControl = {
+    private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(updateData), for: .valueChanged)
         return refreshControl

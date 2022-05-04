@@ -108,7 +108,6 @@ extension HomeTableController: UICollectionViewDelegateFlowLayout, UICollectionV
 
 //MARK: - UISearchBarDelegate
 extension HomeTableController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchText = searchBar.text?.replacingOccurrences(of: " ", with: "") ?? ""
         NetworkManager.shared.fetchSearchPhoto(with: searchText) { result in
@@ -121,5 +120,4 @@ extension HomeTableController: UISearchBarDelegate {
             }
         }
     }
-
 }
