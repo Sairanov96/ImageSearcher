@@ -15,6 +15,7 @@ enum PhotoStatus: String {
 
 class InfoViewController: UIViewController {
     
+    private var isFavorite = false
     private var photoInfo: Photo!
     private var favoritePhoto: Results<Photo>? = nil
     private var imageName = ""
@@ -50,6 +51,10 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        checkIsFavorite()
     }
 }
 
@@ -107,14 +112,23 @@ extension InfoViewController {
     }
     
     @objc func addToFavorites() {
-        if imageName == PhotoStatus.unfavorite.rawValue {
-            StorageManager.shared.save(photoInfo)
+//        if imageName == PhotoStatus.unfavorite.rawValue {
+//
+//            favoriteButton.image = UIImage(systemName: PhotoStatus.favorite.rawValue)
+//            imageName = PhotoStatus.favorite.rawValue
+//            favoriteButton.customView?.isHidden = true
+//        } else {
+//
+//            favoriteButton.image = UIImage(systemName: PhotoStatus.unfavorite.rawValue)
+//            favoriteButton.customView?.isHidden = true
+//        }
+        
+        if isFavorite == false {
+            isFavorite = true
             favoriteButton.image = UIImage(systemName: PhotoStatus.favorite.rawValue)
-            imageName = PhotoStatus.favorite.rawValue
         } else {
-            StorageManager.shared.delete(photoInfo)
+            isFavorite = false
             favoriteButton.image = UIImage(systemName: PhotoStatus.unfavorite.rawValue)
-            imageName = PhotoStatus.unfavorite.rawValue
         }
     }
     
@@ -148,8 +162,21 @@ extension InfoViewController {
     private func configureFavoriteButton() {
         if let _ = StorageManager.shared.realm?.object(ofType: Photo.self, forPrimaryKey: photoInfo.id) {
             imageName = PhotoStatus.favorite.rawValue
+            isFavorite = true
         } else {
             imageName = PhotoStatus.unfavorite.rawValue
+        }
+    }
+    
+    private func checkIsFavorite() {
+        if let _ = StorageManager.shared.realm?.object(ofType: Photo.self, forPrimaryKey: photoInfo.id) {
+            if !isFavorite {
+                StorageManager.shared.delete(photoInfo)
+            }
+        } else {
+            if isFavorite {
+                StorageManager.shared.save(photoInfo)
+            }
         }
     }
 }
