@@ -50,7 +50,7 @@ extension CustomCollectionCell {
 extension CustomCollectionCell {
     private func setupView() {
         contentView.addSubview(imageView)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .black
         configureConstraints()
     }
     

@@ -16,7 +16,7 @@ class HomeTableController: UIViewController {
         searchBar.showsCancelButton = true
         searchBar.sizeToFit()
         searchBar.setShowsCancelButton(false, animated: false)
-        searchBar.becomeFirstResponder()
+        searchBar.resignFirstResponder()
         searchBar.delegate = self
         return searchBar
     }()
@@ -28,7 +28,7 @@ class HomeTableController: UIViewController {
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CustomCollectionCell.self, forCellWithReuseIdentifier: CustomCollectionCell.identifier)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .black
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +48,7 @@ class HomeTableController: UIViewController {
 extension HomeTableController {
     private func setupView() {
         view.addSubview(collectionView)
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         navigationItem.titleView = searchBar
         
         configureConstraints()

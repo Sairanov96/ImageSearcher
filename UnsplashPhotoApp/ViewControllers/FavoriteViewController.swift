@@ -40,7 +40,7 @@ extension FavoriteViewController {
     private func setupView() {
         view.addSubview(tableView)
         tableView.addSubview(refreshControl)
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         configureConstraints()
     }
     
